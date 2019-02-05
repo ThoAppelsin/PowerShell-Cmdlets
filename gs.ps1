@@ -6,6 +6,7 @@ ForEach ($item in (Get-ChildItem -Recurse -Directory)) {
 			Write-Output "> $($item.FullName)"
 			Write-Output $status
 			Write-Output $stash
+			Write-Output ""
 		}
 	}
 }
