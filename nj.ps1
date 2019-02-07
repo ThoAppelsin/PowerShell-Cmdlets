@@ -1,1 +1,1 @@
-nvim *.jl
+nvim (Get-Item *.jl)[0].Name
