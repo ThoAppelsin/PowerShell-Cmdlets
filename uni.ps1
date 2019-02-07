@@ -1,1 +1,1 @@
-cd ~/OneDrive/Desktop/Universite
+cd ~/OneDrive/Documents/Grad
