@@ -3,5 +3,5 @@ if ($res -eq $null) {
 	nvim $args[0]
 }
 else {
-	nvim $res[0].Name
+	nvim $res[0].FullName
 }
