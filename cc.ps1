@@ -1,1 +1,1 @@
-gcc *.c -Wall
+gcc *.c -Wall $args
