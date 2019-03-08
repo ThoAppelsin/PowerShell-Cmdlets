@@ -1,1 +1,1 @@
-latexmk -c
+latexmk -c $args

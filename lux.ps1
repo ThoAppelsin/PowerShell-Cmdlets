@@ -1,0 +1,1 @@
+lx -pdflatex=lualatex
