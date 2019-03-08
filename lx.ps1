@@ -1,1 +1,1 @@
-latexmk -pdf -pvc
+latexmk -pdf -pvc $args
