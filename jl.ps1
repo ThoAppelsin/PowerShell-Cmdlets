@@ -1,1 +1,1 @@
-julia (ls *.jl)[0].Name $args
+julia $args (ls *.jl)[0].Name 
