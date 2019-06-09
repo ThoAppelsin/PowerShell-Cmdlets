@@ -13,4 +13,4 @@ if (!($env:virtualenv_never) -and (Test-Path 'env/Scripts/activate') -and !($env
 		2 { $env:virtualenv_never = $True }
 	}
 }
-python $args (ls *.py)[0].Name 
+python -i $args (ls *.py)[0].Name 
