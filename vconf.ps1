@@ -1,1 +1,1 @@
-nvim C:/Users/utkan/AppData/Local/nvim/init.vim
+nvim "$env:LOCALAPPDATA/nvim/init.vim"
