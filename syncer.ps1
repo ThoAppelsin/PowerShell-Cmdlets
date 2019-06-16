@@ -14,22 +14,27 @@ if (Test-Path (Join-Path $local .git)) {
 
 	Write-Host "fetch, " -NoNewline
 	git -C $local fetch -q
-	(git -C $local status --porcelain -b) -match '.*?\[(?:ahead (\d+))?(?:, )?(?:behind (\d+))?\]'
+	$syncneeded = (git -C $local status --porcelain -b) -match '.*?\[(?:ahead (\d+))?(?:, )?(?:behind (\d+))?\]'
 
-	if ($Matches[2]) {
-		Write-Host "pull, " -NoNewline
-		git -C $local pull -q
+	if ($syncneeded) {
+		if ($Matches[2]) {
+			Write-Host "pull, " -NoNewline
+			git -C $local pull -q
+		}
+		else {
+			Write-Host "pull (N/A), " -NoNewline
+		}
+
+		if ($Matches[1]) {
+			Write-Host "and push"
+			git -C $local push -q
+		}
+		else {
+			Write-Host "and push (N/A)"
+		}
 	}
 	else {
-		Write-Host "pull (N/A), " -NoNewline
-	}
-
-	if ($Matches[1]) {
-		Write-Host "and push"
-		git -C $local push -q
-	}
-	else {
-		Write-Host "and push (N/A)"
+		Write-Host "and pull/push (N/A)"
 	}
 }
 else {
