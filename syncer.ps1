@@ -38,13 +38,18 @@ if (Test-Path (Join-Path $local .git)) {
 	}
 }
 else {
-	git -C $local init
-	git -C $local remote add origin $remote
-	git -C $local fetch --all
-	git -C $local status
-	if (ask No, Yes 0 "WARNING: Files will be reset with the remote's contents!" "Proceed?") {
-		git -C $local reset --hard origin/master
-		git -C $local branch --set-upstream-to=origin/master master
+	if (Test-Path "$local/*") {
+		git -C $local init
+		git -C $local remote add origin $remote
+		git -C $local fetch --all
+		git -C $local status
+		if (ask No, Yes 0 "WARNING: Files will be reset with the remote's contents!" "Proceed?") {
+			git -C $local reset --hard origin/master
+			git -C $local branch --set-upstream-to=origin/master master
+		}
+	}
+	else {
+		git clone $remote $local
 	}
 }
 

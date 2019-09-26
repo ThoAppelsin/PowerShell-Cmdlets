@@ -1,1 +1,1 @@
-nvim "$env:LOCALAPPDATA/nvim/init.vim"
+nvim $args "$env:LOCALAPPDATA/nvim/init.vim"
