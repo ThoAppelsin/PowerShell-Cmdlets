@@ -1,3 +1,4 @@
+# Customizes the git prompt for poshgit (PowerShell git extension)
 $pr = (Get-PromptPath)
 $segs = $pr -split '\\'
 if ($segs.count -gt 4) {

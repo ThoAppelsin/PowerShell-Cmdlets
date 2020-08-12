@@ -1,3 +1,4 @@
+# Synchronizes nvim configs, cmdlets, PowerShell configs, and Sublime Text configs
 Write-Host '== Vim Sync =='
 vsyn
 

@@ -1,3 +1,4 @@
+# Runs the first .jl file in the current directory in interactive and revisable mode
 julia -e "
 atreplinit() do repl
     try

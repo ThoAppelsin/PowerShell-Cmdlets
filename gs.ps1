@@ -1,3 +1,4 @@
+# Recursively git-syncs directories, starting from the current directory, until git directories are reached, or the recursion tree is exhausted
 function CheckPath($path, [ref]$gitonbranch, $nongits) {
 	if (Test-Path (Join-Path $path .git)) {
 		$status = git -C $path status -s
