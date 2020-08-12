@@ -1,1 +1,1 @@
-nvim-qt (Get-Item *.c)[0].Name
+vimext c @args
