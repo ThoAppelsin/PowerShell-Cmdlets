@@ -1,3 +1,4 @@
+# Activates the existing venv for Python, and prompts for creation otherwise
 if (Test-Path 'env/Scripts/activate') {
 	.\env\Scripts\activate
 }

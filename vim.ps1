@@ -1,3 +1,5 @@
+# Without arguments, opens GUI Neovim in the current directory
+# Otherwise, opens the file(s) specified by the first argument, with the flags specified in the further arguments
 if ($args[0] -eq $null) {
 	nvim-qt -- .
 }
