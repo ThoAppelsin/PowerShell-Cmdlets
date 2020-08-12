@@ -1,7 +1,17 @@
-$res = Get-Item "$($args[0])*" -ErrorAction SilentlyContinue
-if ($res -eq $null) {
-	nvim-qt $args[0]
+if ($args[0] -eq $null) {
+	nvim-qt -- .
 }
 else {
-	nvim-qt $res[0].FullName
+	$res = Get-Item "$($args[0])*" -ErrorAction SilentlyContinue
+	$flags = [string] $args[1..$args.length]
+	if ($flags -eq "") {
+		$flags = "-o"
+	}
+	if ($res -eq $null) {
+		nvim-qt -- $flags $args[0].replace("*", "")
+	}
+	else {
+		
+		nvim-qt -- $flags $res.FullName
+	}
 }
