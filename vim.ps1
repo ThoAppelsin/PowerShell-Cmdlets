@@ -4,16 +4,22 @@ if ($args[0] -eq $null) {
 	nvim-qt -- .
 }
 else {
-	$res = Get-Item "$($args[0])*" -ErrorAction SilentlyContinue
 	$flags = [string] $args[1..$args.length]
 	if ($flags -eq "") {
 		$flags = "-o"
 	}
+
+	$res = Get-Item "$($args[0])" -ErrorAction SilentlyContinue
 	if ($res -eq $null) {
-		nvim-qt -- $flags $args[0].replace("*", "")
+		$res = Get-Item "$($args[0])*" -ErrorAction SilentlyContinue
+		if ($res -eq $null) {
+			nvim-qt -- $flags $args[0].replace("*", "")
+		}
+		else {
+			nvim-qt -- $flags $res.FullName
+		}
 	}
 	else {
-		
 		nvim-qt -- $flags $res.FullName
 	}
 }
