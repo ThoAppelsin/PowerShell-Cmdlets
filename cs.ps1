@@ -1,2 +1,2 @@
 # cd's into directory of cmdlets
-cd ~/cmdlets/
+cd $env:CMDLETSDIR
